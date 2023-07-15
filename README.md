@@ -36,8 +36,8 @@ helm: {Version:"v3.12.1", GitCommit:"f32a527a060157990e2aa86bf45010dfb3cc8b8d", 
 ## Run Instructions:
 
 1. Install [rancher-desktop](https://rancherdesktop.io/), and enable kubernetes cluster. Be sure to select `containerd` as Container Engine.
-![](../../Desktop/Screenshot 2023-07-15 at 14.17.58.png)
-![](../../Desktop/Screenshot 2023-07-15 at 14.18.42.png)
+![](k8s%20enabled.png)
+![](containerd%20enabled.png)
 2. Build the image (from airflow-dags/ directory): `nerdctl --namespace k8s.io build . -t airflow-rke:latest`
 3. deploy airflow via helm chart: (from helm-chart/ directory):  
 `helm upgrade --install airflow . --values values.yaml --set airflow.dags_image.repository=airflow-rke --set airflow.dags_image.tag=latest --set airflow.dags_image.pull_policy=Never`
@@ -45,7 +45,6 @@ helm: {Version:"v3.12.1", GitCommit:"f32a527a060157990e2aa86bf45010dfb3cc8b8d", 
 ### Common issues:
 1. Container won't start stating error `airflow-rke:latest Image not found`.
 
-   **Solution**: 
    * make sure you keep the image in `k8s.io` namespace and 
    * image pull_policy is set to `Never`. This flag ensures that kubectl does not pull the image from the remote registry. 
 By default, Kubernetes will try to pull images from a remote registry if unavailable locally. In this case, you’re forcing the local image.
