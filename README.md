@@ -64,3 +64,5 @@ By default, Kubernetes will try to pull images from a remote registry if unavail
 This repository is used to build and demonstrate a special type of custom sensor `KubernetsPodSensor`. Code is available
 under `/airflow-dags/dags/k8s_pod_sensor.py` and the DAG using this sensor is `/airflow-dags/dags/k8sPodSensorDag.py`.
 We demonstrated this sensor by using [dynamoDB table reader code](https://github.com/maxcotec/dynamodb-readiness-check).
+
+Watch video here: https://youtu.be/eJB_f8YxemE
