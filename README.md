@@ -1,5 +1,8 @@
-# airflow-k8s-rancher
+# Airflow-k8s-rancher
 Run airflow on local Kubernetes cluster managed by Rancher Desktop
+<img src="airflow-k8s-rancher.jpg"/>
+
+Watch YouTube tutorial here: https://youtube.com/watch?v=eZBD-G3Ybhs
 
 ## Prerequisites 
 Prior knowledge on Airflow as well as Kubernetes is a must. 
@@ -55,3 +58,9 @@ By default, Kubernetes will try to pull images from a remote registry if unavail
     [local-path-provisioner](https://github.com/rancher/local-path-provisioner) which is deployed in kube-system namespace. 
     this tool provides a way for the Kubernetes users to utilize the local storage on each node. Make sure its running ok and 
     both of your pods (scheduler and webserver) are bind with the pvc `airflow-logs`.
+
+## KubernetesPodSensor
+
+This repository is used to build and demonstrate a special type of custom sensor `KubernetsPodSensor`. Code is available
+under `/airflow-dags/dags/k8s_pod_sensor.py` and the DAG using this sensor is `/airflow-dags/dags/k8sPodSensorDag.py`.
+We demonstrated this sensor by using [dynamoDB table reader code](https://github.com/maxcotec/dynamodb-readiness-check).

@@ -1,8 +1,8 @@
 airflow:
   dags_image:
-    repository: airflow-rke    # repository URL
+    repository: airflow-rke                       # repository URL
     tag: latest                                   # airflow dags image version
-    pull_policy: IfNotPresent                       # change this to `Always` if changes applied on same tagged image.
+    pull_policy: IfNotPresent                     # change this to `Always` if changes applied on same tagged image.
   webserver:
     username: admin
     password: "12345678"
